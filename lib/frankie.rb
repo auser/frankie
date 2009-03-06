@@ -7,6 +7,8 @@
 #
 
 require 'sinatra'
+$:.unshift File.dirname(__FILE__) + '/net'
+require 'http_multipart_post'
 
 module Frankie
 
