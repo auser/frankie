@@ -104,7 +104,7 @@ module Frankie
 
     def verified_facebook_params
       facebook_sig_params = params.inject({}) do |collection, pair|        
-        collection[pair.first.sub(/^fb_sig_/, '')] = pair.last if pair.first[0,7] == 'fb_sig_'
+        collection[pair.first.sub(/^fb_sig_/, '')] = pair.last if !pair.first.nil? && pair.first[0,7] == 'fb_sig_'
         collection
       end
       verify_signature(facebook_sig_params, params['fb_sig'])
